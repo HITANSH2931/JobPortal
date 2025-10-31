@@ -7,6 +7,7 @@ import { addExperience, deleteExperience } from '../../redux/Profile';
 import EditExper from './EditExper';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
+import BASE_URL from './config';
 
 const Experience = () => {
 
@@ -39,7 +40,7 @@ const Experience = () => {
 
       console.log(data)
 
-      const response = await axios.post("http://localhost:8080/addExp",{
+      const response = await axios.post(`${BASE_URL}/addExp`,{
         ...data
       },{
         headers:{
@@ -47,7 +48,6 @@ const Experience = () => {
         }
       })
 
-      console.log(response)
 
       dispatch(addExperience(response.data))
 
@@ -63,7 +63,7 @@ const Experience = () => {
 
       try{
            
-          const response = await axios.post(`http://localhost:8080/deleteExp/${exp.id}`,{},{
+          const response = await axios.post(`${BASE_URL}/deleteExp/${exp.id}`,{},{
 
             headers:{
               Authorization:`Bearer  ${token}`

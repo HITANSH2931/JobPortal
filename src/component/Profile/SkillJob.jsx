@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addSkills, removeSkills } from "../../redux/Profile";
 import axios from "axios";
+import BASE_URL from './config';
 
 function SkillJob() {
 
@@ -43,7 +44,7 @@ function SkillJob() {
 
   const handleSave = async () => {
 
-     const response =  await axios.post("http://localhost:8080/addSkills",{
+     const response =  await axios.post(`${BASE_URL}/addSkills`,{
       skills:skills
      },{
 

@@ -12,7 +12,7 @@ const Pagination = ({jobs,filteredJobs,pageNo,setPageNo,setPageJobs}) => {
                       (_, i) => i + Number(pageNo)
                      );
 
-                     console.log(totalPage)
+                    
 
     const handleChange = (e) =>{
 
@@ -28,11 +28,8 @@ const Pagination = ({jobs,filteredJobs,pageNo,setPageNo,setPageJobs}) => {
     const handleLeft = (e) =>{
 
         const newPageNo = pageNo-1;
-        console.log("hello")
-
+      
         if(newPageNo == 0) return;
-
-        console.log("end");
 
         const start = jobsPerPage*newPageNo-jobsPerPage;
         const end =   jobsPerPage*newPageNo;
@@ -44,11 +41,7 @@ const Pagination = ({jobs,filteredJobs,pageNo,setPageNo,setPageJobs}) => {
 
     const handleRight = (e) =>{
         
-        console.log("hello");
-
         if(pageNo == totalPages) return;
-
-        console.log("end");
 
         const newPageNo = pageNo + 1;
 

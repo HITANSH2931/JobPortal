@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { addAbout } from '../../redux/Profile';
 import axios from 'axios';
+import BASE_URL from './config';
 
 const About = () => {
   
@@ -17,7 +18,7 @@ const About = () => {
 
     const handleSave = async () =>{
 
-      const response = axios.post("http://localhost:8080/addAbout",{
+      const response = axios.post(`${BASE_URL}/addAbout`,{
         about:about
 
       },{

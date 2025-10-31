@@ -11,6 +11,7 @@ import { removeSavedJob, saved } from '../redux/UserRedux';
 import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import Notification from '../Notification';
+import BASE_URL from './config';
 
 const FindJob = () => {
     
@@ -48,7 +49,7 @@ const FindJob = () => {
     const getAllJobs = async () =>{
 
         try{
-        const response = await axios.get("http://localhost:8080/getAllJobs",{
+        const response = await axios.get(`${BASE_URL}/getAllJobs`,{
 
             headers:{
                 Authorization:`Bearer ${token}`
@@ -57,7 +58,6 @@ const FindJob = () => {
     
 
         setJobs(response.data);
-        console.log(response)
     }
 
     catch(error){
@@ -112,7 +112,7 @@ const FindJob = () => {
 
         try{
 
-         const response = await axios.post("http://localhost:8080/handleRemoveSaveJob",{},{
+         const response = await axios.post(`${BASE_URL}/handleRemoveSaveJob`,{},{
 
             params:{
                 saveId:savedJob.id
@@ -135,7 +135,7 @@ const FindJob = () => {
      else{
      try{
 
-        const response = await axios.post("http://localhost:8080/handleSaveJob",{},{
+        const response = await axios.post(`${BASE_URL}/handleSaveJob`,{},{
 
             params:{
                 jobId:job.id
@@ -219,7 +219,7 @@ const FindJob = () => {
                      
                      <div className='text-[14px] flex justify-center'>
                      <Link 
-                     state={{jobData:job}}
+                     state={{jobData:job,jobs:jobs}}
                      to="/viewJob" className='w-full'>
                      <button className=' text-mine-shaft-50 bg-bright-sun-500 hover:bg-bright-sun-600 rounded-lg px-1.5 py-1 w-full'>View Job</button>
                      </Link>

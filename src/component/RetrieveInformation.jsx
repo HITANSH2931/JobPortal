@@ -5,6 +5,7 @@ import { appliedAll, savedAll } from '../redux/UserRedux';
 import { addAllActiveJobs, addAllClosedJobs, addAllDraftJobs } from '../redux/JobInfo';
 import { addProfileInformation } from '../redux/Profile';
 import { getContrastColor } from '@mantine/core';
+import BASE_URL from './config';
 
 const RetrieveInformation = () => {
     
@@ -13,7 +14,7 @@ const RetrieveInformation = () => {
 
         try{
 
-            const response = await axios.get("http://localhost:8080/getAppliedJobs",{
+            const response = await axios.get(`${BASE_URL}/getAppliedJobs`,{
 
                 headers:{
                     Authorization:`Bearer ${token}`
@@ -33,7 +34,7 @@ const RetrieveInformation = () => {
 
         try{
 
-            const response = await axios.get("http://localhost:8080/getSavedJobs",{
+            const response = await axios.get(`${BASE_URL}/getSavedJobs`,{
 
                 headers:{
                     Authorization:`Bearer ${token}`
@@ -53,7 +54,7 @@ const RetrieveInformation = () => {
 
         try{
 
-            const response = await axios.get("http://localhost:8080/getPostJobs",{
+            const response = await axios.get(`${BASE_URL}/getPostJobs`,{
 
                 headers:{
                     Authorization:`Bearer ${token}`
@@ -75,7 +76,7 @@ const RetrieveInformation = () => {
 
         try{
 
-            const response = await axios.get("http://localhost:8080/getDraftJobs",{
+            const response = await axios.get(`${BASE_URL}/getDraftJobs`,{
 
                 headers:{
                     Authorization:`Bearer ${token}`
@@ -96,7 +97,7 @@ const RetrieveInformation = () => {
 
         try{
 
-            const response = await axios.get("http://localhost:8080/getClosedJobs",{
+            const response = await axios.get(`${BASE_URL}/getClosedJobs`,{
 
                 headers:{
                     Authorization:`Bearer ${token}`
@@ -117,7 +118,7 @@ const RetrieveInformation = () => {
 
         try{
 
-        const response = await axios.get("http://localhost:8080/getProfileInfo",{
+        const response = await axios.get(`${BASE_URL}/getProfileInfo`,{
 
             headers:{
                 Authorization:`Bearer ${token}`

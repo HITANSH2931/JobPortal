@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faDotCircle, faLocation } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import BASE_URL from './config';
 
 const Applicant = ({job}) => {
 
@@ -24,7 +25,7 @@ const Applicant = ({job}) => {
 
       try{
 
-      const response = await axios.get("http://localhost:8080/getAllUsers",{
+      const response = await axios.get(`${BASE_URL}/getAllUsers`,{
 
         params:{
           jobId:job.id
@@ -36,7 +37,6 @@ const Applicant = ({job}) => {
         }
       })
 
-      console.log(response);
       setUser(response.data);
 
     }
@@ -56,7 +56,7 @@ const Applicant = ({job}) => {
   const handleOffer  = async (u) =>{
 
     try{
-    const response = await axios.get("http://localhost:8080/offerJob",{
+    const response = await axios.get(`${BASE_URL}/offerJob`,{
 
       params:{
         
@@ -87,7 +87,7 @@ const Applicant = ({job}) => {
 
     try{
 
-    const response = await axios.get("http://localhost:8080/rejectUser",{
+    const response = await axios.get(`${BASE_URL}/rejectUser`,{
 
       params:{
         jobId:job.id,

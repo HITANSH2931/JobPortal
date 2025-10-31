@@ -5,7 +5,7 @@ import { getTimeAgo } from '../getTimeAgo';
 import axios from 'axios'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import BASE_URL from './config';
 
 const Offered = () => {
 
@@ -27,7 +27,7 @@ const Offered = () => {
 
     try{
 
-        const response = await axios.get("http://localhost:8080/getOfferedJobs",{
+        const response = await axios.get(`${BASE_URL}/getOfferedJobs`,{
 
             headers:{
                 Authorization:`Bearer ${token}`
@@ -54,7 +54,7 @@ const Offered = () => {
    
      try{
       
-     const response = await axios.get("http://localhost:8080/acceptOffer",{
+     const response = await axios.get(`${BASE_URL}/acceptOffer`,{
 
         params:{
             jobId:job.id
@@ -80,7 +80,7 @@ const Offered = () => {
 
     try{
 
-      const response = await axios.get("http://localhost:8080/declineOffer",{
+      const response = await axios.get(`${BASE_URL}/declineOffer`,{
 
         params:{
             jobId:job.id

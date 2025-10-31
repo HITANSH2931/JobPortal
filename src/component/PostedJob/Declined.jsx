@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocation,faCircle } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import BASE_URL from './config';
 
 const Declined = ({job}) => {
      
@@ -18,7 +19,7 @@ const Declined = ({job}) => {
 
             try{
      
-           const response = await axios.get("http://localhost:8080/getDeclinedUsers",{
+           const response = await axios.get(`${BASE_URL}/getDeclinedUsers`,{
      
              params:{
                jobId:job.id
@@ -30,7 +31,7 @@ const Declined = ({job}) => {
              }
            })
      
-           console.log(response);
+          
            setUser(response.data);
          }
       

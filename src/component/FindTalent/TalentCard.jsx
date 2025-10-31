@@ -14,7 +14,6 @@ const TalentCard = ({name,location,title,skill}) => {
      const navigate = useNavigate();
 
      const users = UserProfiles();
-     console.log(users);
 
       const[pageJobs,setPageJobs] = useState([]);
       const[pageNo,setPageNo] = useState(1);

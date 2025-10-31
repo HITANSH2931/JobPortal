@@ -2,7 +2,7 @@ import React from 'react'
 
 const Certifcate = ({certificateList}) => {
 
-  console.log(certificateList)
+
   return (
        <div className='mt-10 font-display border-b border-solid border-mine-shaft-800 pb-10'>
      

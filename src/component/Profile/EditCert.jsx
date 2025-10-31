@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateCertificate } from '../../redux/Profile';
 import { useForm } from 'react-hook-form';
+import BASE_URL from './config';
 
 const EditCert = ({certificate,setEditCert}) => {
 
@@ -21,7 +22,7 @@ const EditCert = ({certificate,setEditCert}) => {
    
        try{
         
-        const response = await axios.post(`http://localhost:8080/updateCert/${data.id}`,{
+        const response = await axios.post(`${BASE_URL}/updateCert/${data.id}`,{
 
           ...data
         },{

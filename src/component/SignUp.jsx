@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom';
 import  axios  from 'axios'
+import BASE_URL from './config';
 
 const SignUp = () => {
 
@@ -19,12 +20,10 @@ const SignUp = () => {
 
     const submitForm = async (data) =>{
 
-      console.log(data);
-
       setSend(true);
 
     try{   
-     const response =  await axios.post("http://localhost:8080/signUp",{
+     const response =  await axios.post(`${BASE_URL}/signUp`,{
        
         name:data.name,
         email:data.email,
@@ -35,7 +34,6 @@ const SignUp = () => {
 
       });
 
-      console.log(response);
 
       reset();
       navigate("/login")

@@ -7,6 +7,7 @@ import axios from 'axios'
 import { addAllMessages, addMessages } from './redux/UserRedux'
 import { useRef } from 'react'
 import { getRandomColor } from './getRandomColor'
+import BASE_URL from './config';
 
 
 const Chatting = ({receiverId,name,setReceiverId}) => {
@@ -41,7 +42,7 @@ const Chatting = ({receiverId,name,setReceiverId}) => {
 
       try{
 
-       const response = await axios.post("http://localhost:8080/sendMessage",{
+       const response = await axios.post(`${BASE_URL}/sendMessage`,{
          
           senderId:senderId,
           receiverId:receiverId,
@@ -71,7 +72,7 @@ const Chatting = ({receiverId,name,setReceiverId}) => {
 
         try{
 
-        const response = await axios.get("http://localhost:8080/getAllMessage",
+        const response = await axios.get(`${BASE_URL}/getAllMessage`,
             
             {
 
@@ -88,7 +89,7 @@ const Chatting = ({receiverId,name,setReceiverId}) => {
         })
 
         dispatch(addAllMessages(response.data))
-        console.log(response.data);
+        
 
     }
 
@@ -124,7 +125,7 @@ const Chatting = ({receiverId,name,setReceiverId}) => {
 
         try{
           
-          const response = await axios.get("http://localhost:8080/typing",{
+          const response = await axios.get(`${BASE_URL}/typing`,{
 
              params:{
 

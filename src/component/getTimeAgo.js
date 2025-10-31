@@ -3,7 +3,7 @@ export function getTimeAgo(postedAt) {
   const now = new Date();
   const postedDate = new Date(postedAt);
   const diffMs = now - postedDate; // milliseconds
-  console.log(postedAt);
+ 
 
   const seconds = Math.floor(diffMs / 1000);
   const minutes = Math.floor(diffMs / (1000 * 60));

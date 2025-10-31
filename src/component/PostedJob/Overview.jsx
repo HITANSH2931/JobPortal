@@ -9,6 +9,7 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addClosedJobs, addOpenJobs, removeDraftJobs } from '../../redux/JobInfo'
 import axios from 'axios'
+import BASE_URL from './config';
 
 
 const Overview = ({job,state,setJob}) => {
@@ -18,6 +19,8 @@ const Overview = ({job,state,setJob}) => {
 
     const dispatch = useDispatch();
     const token = useSelector((state) => state.authlogin.user.token);
+
+    const[loading,setLoading] = useState(false);
 
     const[applicants,setApplicants] = useState(0);
 
@@ -29,7 +32,7 @@ const Overview = ({job,state,setJob}) => {
 
           try{
 
-              const response = await axios.get("http://localhost:8080/totalApplicants",{
+              const response = await axios.get(`${BASE_URL}/totalApplicants`,{
 
                 params:{
                   jobId:job.id
@@ -74,9 +77,11 @@ const Overview = ({job,state,setJob}) => {
 
     const handleClosedJob = async () =>{
 
+      setLoading(true);
+
       try{
 
-        const response = await  axios.get("http://localhost:8080/closeJob",{
+        const response = await  axios.get("https://decode007-latest.onrender.com/closeJob",{
 
            params:{
              
@@ -95,15 +100,22 @@ const Overview = ({job,state,setJob}) => {
         console.log(error);
       }
 
+      finally{
+
+        setLoading(false);
+      }
+
       setJob(null)
     
     }
 
     const handleOpenJob = async () =>{
 
+      setLoading(true);
+
         try{
 
-        const response = await axios.get("http://localhost:8080/openJob",{
+        const response = await axios.get("https://decode007-latest.onrender.com/openJob",{
 
            params:{
              
@@ -122,15 +134,22 @@ const Overview = ({job,state,setJob}) => {
         console.log(error);
       }
 
+      finally{
+
+        setLoading(false);
+      }
+
         
         setJob(null);
     }
 
     const handlePublishDraftJob = async () =>{
 
+      setLoading(true);
+
       try{
 
-        const response = await axios.get("http://localhost:8080/publishDraftJob",{
+        const response = await axios.get("https://decode007-latest.onrender.com/publishDraftJob",{
 
           params:{
             draftId:job.id
@@ -146,6 +165,11 @@ const Overview = ({job,state,setJob}) => {
       catch(error){
 
         console.log(error);
+      }
+
+      finally{
+
+        setLoading(false);
       }
     }
 
@@ -179,16 +203,16 @@ const Overview = ({job,state,setJob}) => {
             
             {state == 'active' ? <>
             <button onClick={() => setisEdit(true)} className='text-bright-sun-400 hover:text-bright-sun-500 bg-mine-shaft-800 px-5 py-1 rounded-lg '>Edit</button>
-            <button onClick={() => handleClosedJob()} className='text-red-400 hover:text-red-500 bg-mine-shaft-800 px-5 py-0.5 rounded-lg '>Close</button>
+            <button disabled={loading} onClick={() => handleClosedJob()} className={`text-red-400 hover:text-red-500 bg-mine-shaft-800 px-5 py-0.5 rounded-lg ${loading ? 'cursor-not-allowed' : ''}`}>Close</button>
             </> :
              state == 'closed' ? 
              <div>
 
-              <button onClick={() => handleOpenJob()} className='text-blue-300 hover:text-blue-400 bg-mine-shaft-800 px-5 py-1.5 rounded-lg '>Open</button>
+              <button disabled={loading} onClick={() => handleOpenJob()} className={`text-blue-300 hover:text-blue-400 bg-mine-shaft-800 px-5 py-1.5 rounded-lg ${loading ? 'cursor-not-allowed' : ''}`}>Open</button>
 
              </div> : <div>
 
-                      <button onClick={() => handlePublishDraftJob()} className='text-blue-300 hover:text-blue-400 bg-mine-shaft-800 px-5 py-1.5 rounded-lg '>Publish Job</button>
+                      <button disabled={loading} onClick={() => handlePublishDraftJob()} className={`text-blue-300 hover:text-blue-400 bg-mine-shaft-800 px-5 py-1.5 rounded-lg ${loading ? 'cursor-not-allowed' : ''}`}>Publish Job</button>
               
                     </div>}
 

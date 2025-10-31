@@ -5,7 +5,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { addAllMessages, addAllNotifcation, addMessages, addNotification, addTypingMessage } from "./redux/UserRedux";
-
+import BASE_URL from './config';
 
 export default function Notification() {
  
@@ -21,7 +21,7 @@ export default function Notification() {
 
      try{
 
-      const response = await axios.get("http://localhost:8080/api/notifications",{
+      const response = await axios.get(`${BASE_URL}/api/notifications`,{
 
         headers:{
           Authorization:`Bearer ${token}`
@@ -46,13 +46,9 @@ export default function Notification() {
   
 
     const client = new Client({
-      brokerURL: "ws://localhost:8080/ws",
+      brokerURL:"wss://decode007-latest-4.onrender.com/ws",
       onConnect: () => {
-        console.log("WebSocket connected");
-
-        console.log("clientRef",clientRef);
-        console.log("current",clientRef.current);
-
+    
       if (clientRef.current?.subscribed) return; // prevent double subscribe
 
         clientRef.current.subscribed = true;
@@ -92,7 +88,7 @@ export default function Notification() {
           client.subscribe(`/topic/receiveMessage/${userId}`, (message) => {
           const mess = JSON.parse(message.body);
 
-          console.log(mess);
+         
           dispatch(addMessages(mess));
 
          })
@@ -101,7 +97,7 @@ export default function Notification() {
           client.subscribe(`/topic/setTyping/${userId}`, (message) => {
           const status = message.body;
 
-          console.log(status);
+         
           dispatch(addTypingMessage(status));
 
          })

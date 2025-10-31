@@ -10,7 +10,7 @@ import About from './About'
 import { addProfileInfo } from '../../redux/Profile'
 import axios from 'axios'
 import { useForm } from 'react-hook-form'
-
+import BASE_URL from './config';
 
 const Profile = () => {
 
@@ -36,7 +36,7 @@ const Profile = () => {
 
       try{
 
-      const response = await axios.post("http://localhost:8080/addProfileInfo",{
+      const response = await axios.post(`${BASE_URL}/addProfileInfo`,{
         ...data,
       },{
         headers:{

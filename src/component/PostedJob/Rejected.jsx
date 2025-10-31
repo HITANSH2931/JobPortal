@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocation,faCircle } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import BASE_URL from './config';
 
 const Rejected = ({job}) => {
      
@@ -18,7 +19,7 @@ const Rejected = ({job}) => {
 
           try{
      
-           const response = await axios.get("http://localhost:8080/getRejectedUsers",{
+           const response = await axios.get(`${BASE_URL}/getRejectedUsers`,{
      
              params:{
                jobId:job.id

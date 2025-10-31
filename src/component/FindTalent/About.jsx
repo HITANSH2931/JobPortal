@@ -2,8 +2,7 @@ import React from 'react'
 
 const About = ({about}) => {
 
-  console.log("hello");
-  console.log(about)
+ 
   return (
     <div className='mt-10 font-display border-b border-solid border-mine-shaft-800 pb-10' >
         

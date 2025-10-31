@@ -24,7 +24,6 @@ const Header = () => {
 
      const handleChange  = (data) =>{
 
-        console.log(data);
         navigate("/findJob",{state:{jobTitle:data.jobTitle,location:data.location}})
      }
 

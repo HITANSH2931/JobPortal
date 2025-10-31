@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import BASE_URL from './config';
 
 const Otp = () => {
 
@@ -29,19 +30,14 @@ const Otp = () => {
     }
 
    const interval = setInterval(()=>{
-      
-    console.log("hello",seconds)
-     
-      
+    
 
       setSeconds(seconds-1); 
        
     },1000)
 
     return () => {
-        
-      console.log("clean",seconds);
-     
+      
       
       clearInterval(interval)
     };
@@ -103,9 +99,7 @@ const Otp = () => {
               setMinute(1);
            
 
-           const response = await axios.get(`http://localhost:8080/resendCode/${email}`)
-
-           console.log(response.data);
+           const response = await axios.get(`${BASE_URL}/resendCode/${email}`)
 
            setData(response.data);
 
@@ -124,15 +118,13 @@ const Otp = () => {
 
           try{
               
-            const response = await axios.get("http://localhost:8080/verifyCode",{
+            const response = await axios.get(`${BASE_URL}/verifyCode`,{
 
               params:{
                 email:email,
                 code:res
               }
             });
-
-            console.log(response.data);
 
              navigate("/password",{state:{email:email}});
           }

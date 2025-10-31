@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { getRandomColor } from './getRandomColor';
 import { useLocation } from 'react-router-dom';
+import BASE_URL from './config';
 
 const Messaging = () => {
 
@@ -21,7 +22,6 @@ const Messaging = () => {
 
 
     const[input,setInput] = useState(userName || '');
-    console.log(input);
     const filteredUsers  = users?.filter(u => {
       
     return input ? u.name.startsWith(input) : true;
@@ -36,7 +36,7 @@ const Messaging = () => {
 
         try{
 
-          const response = await axios.get("http://localhost:8080/Users",{
+          const response = await axios.get(`${BASE_URL}/Users`,{
 
             headers:{
               Authorization:`Bearer ${token}`

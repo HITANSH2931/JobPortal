@@ -4,12 +4,12 @@ import { getTimeAgo } from './getTimeAgo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookmark, faBriefcase, faDollarSign, faLocation, faMoneyBill, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import { getSalary } from './getSalary';
-import { jobs } from './jobs';
 import { Link } from 'react-router-dom';
 import {useDispatch, useSelector} from'react-redux';
 import { applied, saved } from '../redux/UserRedux';
 import axios from 'axios';
 import { useState } from 'react';
+import BASE_URL from './config';
 
 const ViewJob = () => {
 
@@ -25,8 +25,8 @@ const ViewJob = () => {
 
     const location = useLocation();
     const job = location.state?.jobData;
-    console.log(job);
-
+    const jobs = location.state?.jobs;
+  
    
     const filteredJobs = jobs.filter((ele) => ele.company == job.company && ele.jobTitle!=job.jobTitle).slice(0,3);
 
@@ -40,7 +40,7 @@ const ViewJob = () => {
             return;
         }
 
-        const response = await axios.post("http://localhost:8080/applyJob",{},{
+        const response = await axios.post(`${BASE_URL}/applyJob`,{},{
             headers:{
                 Authorization:`Bearer ${token}`
             },
@@ -65,7 +65,7 @@ const ViewJob = () => {
 
         try{
 
-         const response = await axios.post("http://localhost:8080/handleRemoveSaveJob",{},{
+         const response = await axios.post(`${BASE_URL}/handleRemoveSaveJob`,{},{
 
             params:{
                 saveId:savedJob.id
@@ -88,7 +88,7 @@ const ViewJob = () => {
      else{
      try{
 
-        const response = await axios.post("http://localhost:8080/handleSaveJob",{},{
+        const response = await axios.post(`${BASE_URL}/handleSaveJob`,{},{
 
             params:{
                 jobId:job.id

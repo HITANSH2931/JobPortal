@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { addEditedJobs } from '../../redux/JobInfo'
+import BASE_URL from './config';
 
 
 const EditJob = ({job,skill,setisEdit}) => {
@@ -21,7 +22,7 @@ const EditJob = ({job,skill,setisEdit}) => {
 
           try{
 
-        const response = await axios.post("http://localhost:8080/editJob",
+        const response = await axios.post(`${BASE_URL}/editJob`,
 
           {
 

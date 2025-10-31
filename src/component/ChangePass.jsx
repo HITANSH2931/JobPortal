@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import BASE_URL from './config';
 
 const ChangePass = () => {
 
@@ -18,12 +19,11 @@ const ChangePass = () => {
 
      const submitForm = async (data) =>{
 
-      console.log(data);
 
       setSend(true);
 
     
-          const response = await axios.post("http://localhost:8080/changePassword",{
+          const response = await axios.post(`${BASE_URL}/changePassword`,{
 
              email:email,
              password:password
@@ -31,12 +31,9 @@ const ChangePass = () => {
           });
 
       
-      console.log(response);
-
       setData(response.data);
 
       setTimeout(()=> setData('') ,3000)
-
       setTimeout(() => navigate("/") ,4000)
       
       setSend(false);

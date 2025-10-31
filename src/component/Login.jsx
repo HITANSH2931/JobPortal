@@ -5,7 +5,7 @@ import axios from 'axios';
 import  { useDispatch, useSelector} from 'react-redux'
 import { login } from '../redux/UserRedux.js';
 import RetrieveInformation from './RetrieveInformation.jsx';
-
+import BASE_URL from './config';
 
 const Login = () => {
 
@@ -54,13 +54,13 @@ const Login = () => {
 
         try{
 
-          const response = await axios.post("http://localhost:8080/login",{
+          const response = await axios.post(`${BASE_URL}/login`,{
 
             email:data.email,
             password:data.password
           });
 
-          console.log(response);
+        
           dispatch(login(response.data))
 
           reset();
@@ -99,13 +99,13 @@ const Login = () => {
 
      const googlelogin  = async () => {
 
-       window.location.href = "http://localhost:8080/oauth2/authorization/google"
+       window.location.href = `${BASE_URL}/oauth2/authorization/google`
 
      }
 
       const githublogin  = () => {
 
-         window.location.href = "http://localhost:8080/oauth2/authorization/github"
+         window.location.href = `${BASE_URL}/oauth2/authorization/github`
 
      }
 

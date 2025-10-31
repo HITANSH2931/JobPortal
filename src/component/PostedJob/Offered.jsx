@@ -5,14 +5,13 @@ import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocation } from '@fortawesome/free-solid-svg-icons';
+import BASE_URL from './config';
 
 
 const Offered = ({job}) => {
 
     const[user,setUser] = useState([]);
     const token = useSelector((state) => state.authlogin.user.token);
-
-    console.log(user)
   
     const[loading,setLoading] = useState(true);
 
@@ -22,7 +21,7 @@ const Offered = ({job}) => {
 
       try{
 
-      const response = await axios.get("http://localhost:8080/getOfferedUsers",{
+      const response = await axios.get(`${BASE_URL}/getOfferedUsers`,{
 
         params:{
           jobId:job.id
@@ -34,7 +33,6 @@ const Offered = ({job}) => {
         }
       })
 
-      console.log(response);
       setUser(response.data);
 
     }

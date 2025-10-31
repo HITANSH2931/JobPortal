@@ -12,6 +12,7 @@ import DropDown from '../DropDown'
 import axios from 'axios'
 import { removeNotification } from '../redux/UserRedux'
 import { getTimeAgo } from './getTimeAgo'
+import BASE_URL from './config';
 
 
 const Navbar = () => {
@@ -30,7 +31,6 @@ const Navbar = () => {
   const checkIcon = <IconCheck size={16} />;
 
   const notificationList =  useSelector((state) => state.authlogin.notification);
-  console.log(notificationList);
 
   const[notified,setNotified] = useState(false);
   const[logout,setLogOut] =  useState(false);
@@ -42,7 +42,7 @@ const Navbar = () => {
 
     try{
 
-       const response = await axios.get("http://localhost:8080/api/notification/markRead",{
+       const response = await axios.get(`${BASE_URL}/api/notification/markRead`,{
         params:{
           id:noti.id
         },

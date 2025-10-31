@@ -6,6 +6,7 @@ import { getSalary } from '../getSalary';
 import { getTimeAgo } from '../getTimeAgo';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import BASE_URL from './config';
 
 const Jobs = () => {
 
@@ -27,7 +28,7 @@ const Jobs = () => {
 
         try{
 
-            const response = await axios.get("http://localhost:8080/getJobsByCompany",{
+            const response = await axios.get(`${BASE_URL}/getJobsByCompany`,{
 
                 params:{
                     company:company

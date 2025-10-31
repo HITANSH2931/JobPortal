@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import BASE_URL from './config';
 
 const Forgot = () => {
 
@@ -22,9 +23,7 @@ const Forgot = () => {
       try{
       
 
-          const response = await axios.post(`http://localhost:8080/verifyEmail/${data.email}`)
-
-            console.log(response);
+          const response = await axios.post(`${BASE_URL}/verifyEmail/${data.email}`)
 
            reset();
 

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from './redux/UserRedux';
 import RetrieveInformation from './component/RetrieveInformation';
 RetrieveInformation
+import BASE_URL from './config';
 
 const Handler = () => {
 
@@ -51,7 +52,7 @@ const Handler = () => {
         }
 
 
-        getProfileInfo(response.data.token)
+        getProfileInfo(tokenParam)
 
         navigate("/")
 
@@ -66,7 +67,7 @@ const Handler = () => {
 
       try{
 
-      const response = await axios.get("http://localhost:8080/addRole",{
+      const response = await axios.get(`${BASE_URL}/addRole`,{
 
         params:{
           role:data.role,

@@ -29,7 +29,7 @@ const Certification = () => {
     setSend(true);
 
       try{
-     const response = await axios.post("http://localhost:8080/addCert",{
+     const response = await axios.post(`${BASE_URL}/addCert`,{
         ...data
        },{
         headers:{
@@ -57,7 +57,7 @@ const Certification = () => {
 
       try{
            
-          const response = await axios.post(`http://localhost:8080/deleteCert/${cert.id}`,{},{
+          const response = await axios.post(`${BASE_URL}/deleteCert/${cert.id}`,{},{
 
             headers:{
               Authorization:`Bearer  ${token}`

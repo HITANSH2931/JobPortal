@@ -5,6 +5,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { addActiveJobs, addDraftsJobs } from '../redux/JobInfo'
+import BASE_URL from './config';
 
 const PostJob = () => {
 
@@ -30,9 +31,8 @@ const PostJob = () => {
       return;
     }
 
-     console.log(data);
-
-    const response = await axios.post("http://localhost:8080/postJob",{
+    
+    const response = await axios.post(`${BASE_URL}/postJob`,{
 
       company:data.company,
       location:data.location,
@@ -50,8 +50,6 @@ const PostJob = () => {
       }
      });
 
-     console.log(response);
-     console.log(token);
 
      reset();
      setSkills([])
@@ -71,10 +69,8 @@ const PostJob = () => {
       return;
     }
 
-    
-    console.log(data);
 
-    const response = await axios.post("http://localhost:8080/handleDraftJob",{
+    const response = await axios.post(`${BASE_URL}/handleDraftJob`,{
 
       company:data.company,
       location:data.location,

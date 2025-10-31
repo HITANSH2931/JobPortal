@@ -6,7 +6,4 @@ export  function getSalary(salary){
     else return `${(salary/10000000.0).toFixed(2)} Cr`
 
 
-    console.log("hello");
-
-
 }

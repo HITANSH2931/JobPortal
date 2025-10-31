@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateExperience } from '../../redux/Profile';
 import { useForm } from 'react-hook-form';
+import BASE_URL from './config';
 
 const EditExper = ({experience,setExpIndex}) => {
 
@@ -19,7 +20,7 @@ const EditExper = ({experience,setExpIndex}) => {
 
        
        try{
-        const response = await axios.post(`http://localhost:8080/updateExp/${data.id}`,{
+        const response = await axios.post(`${BASE_URL}/updateExp/${data.id}`,{
           ...data
           
         },{
@@ -50,7 +51,7 @@ const EditExper = ({experience,setExpIndex}) => {
 
         e.preventDefault();
         setExpIndex(-1);
-        console.log("hello")
+       
     }
 
 
