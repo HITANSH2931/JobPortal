@@ -7,7 +7,7 @@ import axios from 'axios'
 import { addAllMessages, addMessages } from './redux/UserRedux'
 import { useRef } from 'react'
 import { getRandomColor } from './getRandomColor'
-import BASE_URL from './config';
+import BASE_URL from './component/config';
 
 
 const Chatting = ({receiverId,name,setReceiverId}) => {

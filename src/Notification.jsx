@@ -5,7 +5,7 @@ import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { addAllMessages, addAllNotifcation, addMessages, addNotification, addTypingMessage } from "./redux/UserRedux";
-import BASE_URL from './config';
+import BASE_URL from './component/config';
 
 export default function Notification() {
  

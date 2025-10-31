@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from './redux/UserRedux';
 import RetrieveInformation from './component/RetrieveInformation';
 RetrieveInformation
-import BASE_URL from './config';
+import BASE_URL from './component/config';
 
 const Handler = () => {
 
