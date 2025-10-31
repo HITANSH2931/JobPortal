@@ -255,8 +255,8 @@ const ViewJob = () => {
 
 
                     <div className='flex justify-between flex-wrap gap-y-5 text-[13px] text-bright-sun-300'>
-                        <p className='px-2 py-1 rounded-lg bg-mine-shaft-800'>{job.type}</p>
-                        <p className='px-2 py-1 rounded-lg bg-mine-shaft-800'>{job.level}</p>
+                        <p className='px-2 py-1 rounded-lg bg-mine-shaft-800'>{job.jobType}</p>
+                        <p className='px-2 py-1 rounded-lg bg-mine-shaft-800'>{job.experience}</p>
                         <p className='px-2 py-1 rounded-lg bg-mine-shaft-800'>{job.location}</p>
                     </div>
 
@@ -266,8 +266,8 @@ const ViewJob = () => {
 
                     <div className='flex justify-between items-center'>
                         <p className='text-mine-shaft-200 text-[14px]'>{getSalary(job.salary)}</p>
-                        <p className='text-mine-shaft-200 text-[12px]'>Posted {getTimeAgo(job.time)}</p>
-                    </div>
+                        <p className='text-mine-shaft-200 text-[12px]'>Posted {getTimeAgo(job.timestamp)}</p>
+                    </div>i
                      
                      <div className='text-[14px] flex justify-center'>
                      <Link 
