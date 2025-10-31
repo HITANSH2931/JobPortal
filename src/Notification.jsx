@@ -114,7 +114,7 @@ export default function Notification() {
   return () => {
     clientRef.current?.deactivate();
     clientRef.current = null;
-    console.log("web socket disconnected");
+   
   };
   
   }, []);

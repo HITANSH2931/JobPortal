@@ -59,6 +59,8 @@ const ViewJob = () => {
 
     const handleSave = async (job) =>{
 
+    setSave(true);
+
      const savedJob = saveJobs.find((j) => j.jobId == job.id)
 
      if(savedJob){
@@ -82,6 +84,11 @@ const ViewJob = () => {
 
         console.log(error);
      }
+
+      finally{
+
+        setSave(false);
+      }
          dispatch(removeSavedJob(job));
      }
 
@@ -108,8 +115,10 @@ const ViewJob = () => {
         console.log(error);
      }
 
-    
-       
+     finally{
+
+        setSave(false);
+     }
     }
   }
 
@@ -137,9 +146,9 @@ const ViewJob = () => {
             className={` font-semibold border border-solid ${appliedJobs?.some((ele) => ele.id == job.id) ? 'bg-green-800 text-mine-shaft-50' : 'text-bright-sun-400 hover:text-bright-sun-500'}  border-mine-shaft-800 rounded-xl px-4.5 py-1.5`}
             >{appliedJobs?.some((ele) => ele.id == job.id) ? 'Applied' : 'Apply'}</button>
             
-            <FontAwesomeIcon  icon={faBookmark} onClick={() => handleSave()}
+          <button disabled={save}><FontAwesomeIcon  icon={faBookmark} onClick={() => handleSave()}
              className={`text-xl  ${saveJobs.some((ele) => ele?.jobId == job.id) ? 'text-green-500': 'text-mine-shaft-700'} `}/>
-         
+         </button>
           </div>
           </div>  
 

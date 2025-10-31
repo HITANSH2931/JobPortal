@@ -38,7 +38,11 @@ const Navbar = () => {
   const token = useSelector((state) => state.authlogin.user?.token);
   const dispatch = useDispatch();
 
+  const[send,setSend] = useState(false);
+
   const handleMarkAsRead = async (noti) =>{
+
+    setSend(true);
 
     try{
 
@@ -60,6 +64,7 @@ const Navbar = () => {
     finally{
 
       dispatch(removeNotification(noti))
+      setSend(false);
     }
   }
 
@@ -132,7 +137,7 @@ const Navbar = () => {
 
                   <div className='mb-2 bg-mine-shaft-950 rounded-md'>
 
-                      <Notification   icon={checkIcon} radius="md"  onClose={() => handleMarkAsRead(noti)}
+                      <Notification   icon={checkIcon} radius="md"  onClose={() => handleMarkAsRead(noti)}  closeButtonProps={{ disabled: send }} 
 
                        styles={{
 

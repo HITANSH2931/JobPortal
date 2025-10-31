@@ -42,7 +42,10 @@ const FindJob = () => {
     const dispatch = useDispatch();
 
     const token = useSelector((state) => state.authlogin.user?.token)
-    console.log(token)
+
+    const [send,setSend] = useState(false);
+
+    
 
     useEffect(()=>{
 
@@ -108,6 +111,8 @@ const FindJob = () => {
 
      const savedJob = saveJobs.find((j) => j.jobId == job.id)
 
+     setSend(true);
+
      if(savedJob){
 
         try{
@@ -129,6 +134,11 @@ const FindJob = () => {
 
         console.log(error);
      }
+
+      finally{
+
+        setSend(false);
+      }
          dispatch(removeSavedJob(job));
      }
 
@@ -155,7 +165,10 @@ const FindJob = () => {
         console.log(error);
      }
 
-    
+     finally{
+
+        setSend(false);
+     }
        
     }
   }
@@ -195,8 +208,10 @@ const FindJob = () => {
                 </div>
 
                         <div>
-                            <FontAwesomeIcon onClick={() => handleSave(job)} icon={faBookmark} 
-                            className={`${saveJobs.some((ele) => ele?.jobId == job.id) ? 'text-green-500' : 'text-mine-shaft-500'}`}/>
+                            <button disabled={send}><FontAwesomeIcon onClick={() => handleSave(job)} icon={faBookmark} 
+                             className={`${saveJobs.some((ele) => ele?.jobId == job.id) ? 'text-green-500' : 'text-mine-shaft-500'}`}/>
+                            </button> 
+                           
                         </div>
 
                 </div>
