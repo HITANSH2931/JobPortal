@@ -6,7 +6,7 @@ import { getSalary } from '../getSalary';
 import { getTimeAgo } from '../getTimeAgo';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import BASE_URL from './config';
+import BASE_URL from '../config';
 
 const Jobs = () => {
 

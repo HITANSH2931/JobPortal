@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useState } from "react";
-import BASE_URL from './config';
+import BASE_URL from '../config';
 
 export const UserProfiles = () =>{
 

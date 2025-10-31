@@ -10,7 +10,7 @@ import About from './About'
 import { addProfileInfo } from '../../redux/Profile'
 import axios from 'axios'
 import { useForm } from 'react-hook-form'
-import BASE_URL from './config';
+import BASE_URL from '../config';
 
 const Profile = () => {
 

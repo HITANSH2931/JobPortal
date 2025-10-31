@@ -5,7 +5,7 @@ import { getTimeAgo } from '../getTimeAgo';
 import axios from 'axios'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import BASE_URL from './config';
+import BASE_URL from '../config';
 
 const Declined = () => {
 

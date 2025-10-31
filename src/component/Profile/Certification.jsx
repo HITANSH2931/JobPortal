@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { addCertificate, deleteCertificate } from '../../redux/Profile';
 import { useForm } from 'react-hook-form';
+import BASE_URL from '../config';
 
 const Certification = () => {
 

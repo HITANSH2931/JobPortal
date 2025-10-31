@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { addAbout } from '../../redux/Profile';
 import axios from 'axios';
-import BASE_URL from './config';
+import BASE_URL from '../config';
 
 const About = () => {
   

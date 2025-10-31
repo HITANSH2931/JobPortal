@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateExperience } from '../../redux/Profile';
 import { useForm } from 'react-hook-form';
-import BASE_URL from './config';
+import BASE_URL from '../config';
 
 const EditExper = ({experience,setExpIndex}) => {
 

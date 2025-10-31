@@ -5,7 +5,7 @@ import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocation } from '@fortawesome/free-solid-svg-icons';
-import BASE_URL from './config';
+import BASE_URL from '../config';
 
 
 const Offered = ({job}) => {

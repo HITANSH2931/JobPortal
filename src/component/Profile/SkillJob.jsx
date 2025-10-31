@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addSkills, removeSkills } from "../../redux/Profile";
 import axios from "axios";
-import BASE_URL from './config';
+import BASE_URL from '../config';
 
 function SkillJob() {
 

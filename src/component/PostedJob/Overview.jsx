@@ -9,7 +9,7 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addClosedJobs, addOpenJobs, removeDraftJobs } from '../../redux/JobInfo'
 import axios from 'axios'
-import BASE_URL from './config';
+import BASE_URL from '../config';
 
 
 const Overview = ({job,state,setJob}) => {

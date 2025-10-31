@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { addEditedJobs } from '../../redux/JobInfo'
-import BASE_URL from './config';
+import BASE_URL from '../config';
 
 
 const EditJob = ({job,skill,setisEdit}) => {

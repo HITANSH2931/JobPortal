@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faDotCircle, faLocation } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
-import BASE_URL from './config';
+import BASE_URL from '../config';
 
 const Applicant = ({job}) => {
 

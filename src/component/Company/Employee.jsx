@@ -5,7 +5,7 @@ import { faLocation } from '@fortawesome/free-solid-svg-icons';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
-import BASE_URL from './config';
+import BASE_URL from '../config';
 
 const Employee = () => {
 

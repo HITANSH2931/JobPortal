@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocation,faCircle } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-import BASE_URL from './config';
+import BASE_URL from '../config';
 
 const Declined = ({job}) => {
      

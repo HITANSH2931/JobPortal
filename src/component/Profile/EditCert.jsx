@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateCertificate } from '../../redux/Profile';
 import { useForm } from 'react-hook-form';
-import BASE_URL from './config';
+import BASE_URL from '../config';
 
 const EditCert = ({certificate,setEditCert}) => {
 

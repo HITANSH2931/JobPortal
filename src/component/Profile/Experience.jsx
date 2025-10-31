@@ -7,7 +7,7 @@ import { addExperience, deleteExperience } from '../../redux/Profile';
 import EditExper from './EditExper';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
-import BASE_URL from './config';
+import BASE_URL from '../config';
 
 const Experience = () => {
 
