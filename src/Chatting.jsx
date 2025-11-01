@@ -152,6 +152,7 @@ const Chatting = ({receiverId,name,setReceiverId}) => {
         clearTimeout(typingTimeout.current);
         typingTimeout.current = null;
         setTyping(false);
+        console.log("Hello")
 
       }
     };
