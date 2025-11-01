@@ -272,7 +272,7 @@ const ViewJob = () => {
                      <div className='text-[14px] flex justify-center'>
                      <Link 
                      state={{jobData:job}}
-                     to="/viewJob" className='w-full'>
+                     to="/seeJob" className='w-full'>
                      <button className=' text-mine-shaft-50 bg-bright-sun-500 hover:bg-bright-sun-600 rounded-lg px-1.5 py-1 w-full'>View Job</button>
                      </Link>
                      </div>
