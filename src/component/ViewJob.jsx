@@ -28,7 +28,7 @@ const ViewJob = () => {
     const jobs = location.state?.jobs;
   
    
-    const filteredJobs = jobs.filter((ele) => ele.company == job.company && ele.jobTitle!=job.jobTitle).slice(0,3);
+    const filteredJobs = jobs.filter((ele) => ele.company == job.company && ele.jobTitle!=job.jobTitle && ele.id!=job.id).slice(0,3);
 
     const handleApply = async () =>{
 
@@ -234,7 +234,9 @@ const ViewJob = () => {
 
        <div className='flex flex-col gap-5'>
         <h1 className='text-mine-shaft-50 text-xl font-semibold mt-10'>Recommended Jobs</h1>
-     
+       
+        {filteredJobs.length == 0 && <p className='text-mine-shaft-200'>No More Jobs found</p>}
+
         <div className='grid grid-cols-1  gap-7 w-full'>
         {filteredJobs.map((job,index) =>(
 
@@ -267,7 +269,7 @@ const ViewJob = () => {
                     <div className='flex justify-between items-center'>
                         <p className='text-mine-shaft-200 text-[14px]'>{getSalary(job.salary)}</p>
                         <p className='text-mine-shaft-200 text-[12px]'>Posted {getTimeAgo(job.timestamp)}</p>
-                    </div>i
+                    </div>
                      
                      <div className='text-[14px] flex justify-center'>
                      <Link 
