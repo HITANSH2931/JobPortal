@@ -28,8 +28,13 @@ const ViewJob = () => {
     const jobs = location.state?.jobs;
   
    
-    const filteredJobs = jobs.filter((ele) => ele.company == job.company && ele.jobTitle!=job.jobTitle && ele.id!=job.id).slice(0,3);
+    const filteredJobs = jobs?.filter((ele) => ele.company == job.company && ele.jobTitle!=job.jobTitle && ele.id!=job.id).slice(0,3);
 
+    useEffect(() =>{
+
+        if(!job) navigate("/");
+    },[])
+   
     const handleApply = async () =>{
 
         setSave(true);

@@ -1,6 +1,6 @@
 import { faBuilding, faIndustry, faLocation } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AvatarGroup } from '@mantine/core'
 import { Avatar } from '@mantine/core'
 import CompanyInfo from './CompanyInfo'
@@ -8,13 +8,19 @@ import { useState } from 'react'
 import SimilarCompanies from './SimilarCompanies'
 import Jobs from './Jobs'
 import Employee from './Employee'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const Company = () => {
 
   const[status,setStatus]  = useState("about");
   const location = useLocation();
   const company = location.state?.company;
+  const navigate  = useNavigate();
+
+  useEffect(() =>{
+
+      if(!company) navigate("/");
+  },[])
 
   return (
     <div className='mx-10 mt-15 font-display grid grid-cols-1 gap-y-8 md:grid-cols-[80%_20%]'>
